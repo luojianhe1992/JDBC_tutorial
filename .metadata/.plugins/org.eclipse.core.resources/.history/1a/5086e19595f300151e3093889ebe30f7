@@ -1,0 +1,17 @@
+package test_12;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class ResultSetDemo {
+	
+	Connection myConnection = null;
+	Statement myStatement = 
+	
+	public static void main(String[] args) throws SQLException{
+		
+	}
+	
+	
+}
