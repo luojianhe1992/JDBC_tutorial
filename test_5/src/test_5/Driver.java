@@ -14,19 +14,24 @@ public class Driver {
 	static String user = "root";
 	static String password = "541548";
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+		
+		Connection myConnection = null;
+		java.sql.PreparedStatement myPrepareStatement = null;
+		ResultSet myResultSet = null;
+		
 		try {
-			Connection myConnection = DriverManager.getConnection(url, user, password);
+			myConnection = DriverManager.getConnection(url, user, password);
 			
 			String preparedSQL = "select * from employees where salary >= ? and department=?";
 			
-			java.sql.PreparedStatement myPreparedStatement = myConnection.prepareStatement(preparedSQL);
+			myPrepareStatement = myConnection.prepareStatement(preparedSQL);
 			
 			// set parameter for prestatement
-			myPreparedStatement.setInt(1, 7000);
-			myPreparedStatement.setString(2, "OA");
+			myPrepareStatement.setInt(1, 7000);
+			myPrepareStatement.setString(2, "OA");
 			
-			ResultSet myResultSet = myPreparedStatement.executeQuery();
+			myResultSet = myPrepareStatement.executeQuery();
 			
 			System.out.println("**********************************");
 			while (myResultSet.next()) {
@@ -41,6 +46,29 @@ public class Driver {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			close(myConnection, myPrepareStatement, myResultSet);
+		}
+	}
+	
+	// close the connection statement and resultset.
+	private static void close(Connection myConnection, Statement myStatment, ResultSet myResultSet) throws SQLException{
+		if (myResultSet != null) {
+			myResultSet.close();
+		}
+		
+		if (myStatment != null) {
+			myStatment.close();
+		}
+		
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+	
+	// overload close function.
+	private static void close(Statement myStatement, ResultSet myResultSet) throws SQLException{
+		close(null, myStatement, myResultSet);
 	}
 	
 }

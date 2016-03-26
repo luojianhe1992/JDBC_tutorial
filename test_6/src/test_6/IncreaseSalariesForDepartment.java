@@ -81,13 +81,11 @@ public class IncreaseSalariesForDepartment {
 			// TODO: handle exception
 		}
 		finally {
-			
+			close(myStatement, myResultSet);
 		}
-		
-		
 	}
 	
-	
+	// define close function
 	private static void close(Connection myConnection, Statement myStatment, ResultSet myResultSet) throws SQLException{
 		
 		if (myResultSet != null) {
@@ -115,8 +113,4 @@ public class IncreaseSalariesForDepartment {
 		}
 		
 	}
-	
-	
-	
-	
 }
