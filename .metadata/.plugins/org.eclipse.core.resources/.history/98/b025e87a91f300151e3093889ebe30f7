@@ -1,0 +1,29 @@
+package test_11;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class MetaDataBasicInfo {
+	public static void main(String[] args) throws SQLException{
+		
+		Connection myConnection = null;
+		
+		String url = 
+		
+		try {
+			myConnection = 
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		finally {
+			close(myConnection);
+		}
+		
+	}
+	
+	private static void close(Connection myConnection) throws SQLException{
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+}

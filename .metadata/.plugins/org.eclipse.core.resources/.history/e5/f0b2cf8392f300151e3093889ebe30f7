@@ -1,0 +1,13 @@
+package test_11;
+
+import java.sql.SQLException;
+
+public class SchemaInfo {
+	public static void main(String[] args) throws SQLException{
+		
+		String catalog = null;
+		String schemaPattern = null;
+		
+		
+	}
+}

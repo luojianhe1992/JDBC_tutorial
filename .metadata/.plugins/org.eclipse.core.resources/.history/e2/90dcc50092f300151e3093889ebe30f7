@@ -1,0 +1,45 @@
+package test_11;
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MetaDataBasicInfo {
+	public static void main(String[] args) throws SQLException{
+		
+		Connection myConnection = null;
+		
+		
+		String url = "jdbc:mysql://localhost:3306/demo";
+		String user = "root";
+		String password = "541548";
+		
+		try {
+			myConnection = DriverManager.getConnection(url, user, password);
+			
+			DatabaseMetaData myDatabaseMetaData = myConnection.getMetaData();
+			
+			System.out.println("Database product name: " + myDatabaseMetaData.getDatabaseProductName());
+			System.out.println("Database product version: " + myDatabaseMetaData.getDatabaseMajorVersion());
+			
+			System.out.println("**************************************************");
+			
+			System.out.println("JDBC driver name: " + myDatabaseMetaData.getDriverName());
+			System.out.println("JDBC driver version: " + );
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		finally {
+			close(myConnection);
+		}
+		
+	}
+	
+	private static void close(Connection myConnection) throws SQLException{
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+}
