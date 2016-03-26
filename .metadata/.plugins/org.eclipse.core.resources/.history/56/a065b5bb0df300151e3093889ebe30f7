@@ -1,0 +1,19 @@
+package test_5;
+
+import java.sql.SQLException;
+
+public class Driver {
+
+	static String url = "jdbc:mysql://localhost/3306/test";
+	static String user = "root";
+	static String password = "541548";
+	
+	public static void main(String[] args) {
+		try {
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
