@@ -22,6 +22,7 @@ public class Driver {
 			
 			java.sql.PreparedStatement myPreparedStatement = myConnection.prepareStatement(preparedSQL);
 			
+			// set parameter for prestatement
 			myPreparedStatement.setInt(1, 7000);
 			myPreparedStatement.setString(2, "OA");
 			

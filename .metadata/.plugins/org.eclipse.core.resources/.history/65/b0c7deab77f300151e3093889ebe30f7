@@ -1,0 +1,7 @@
+package test_6;
+
+public class IncreaseSalariesForDepartment {
+	public static void main(String[] args) {
+		
+	}
+}

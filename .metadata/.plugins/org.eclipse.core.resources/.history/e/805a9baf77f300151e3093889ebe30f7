@@ -1,0 +1,11 @@
+package test_6;
+
+public class IncreaseSalariesForDepartment {
+	public static void main(String[] args) {
+		try {
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+	}
+}
