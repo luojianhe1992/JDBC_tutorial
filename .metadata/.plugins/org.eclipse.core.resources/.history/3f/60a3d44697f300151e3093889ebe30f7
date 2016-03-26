@@ -37,7 +37,7 @@ public class ResultSetDemo {
 			
 			for (int i = 1; i <= columnCount; i++) {
 				System.out.println("Column name is: " + myResultSetMetaData.getColumnName(i));
-				System.out.println("Column type name is: " + myResultSetMetaData.getColumnTypeName(i));
+				System.out.println("Column type name is: " + myResultSetMetaData.getColumnType(i));
 				System.out.println("Is nullable: " + myResultSetMetaData.isNullable(i));
 				System.out.println("Is auto increment: " + myResultSetMetaData.isAutoIncrement(i));
 				System.out.println();
