@@ -1,0 +1,28 @@
+package test_13;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.naming.spi.DirStateFactory.Result;
+
+public class ReadBlobDemo {
+	public static void main(String[] args) throws SQLException{
+		
+		Connection myConnection = null;
+		Statement myStatement = null;
+		Result
+		
+	}
+	
+	private static void close(Connection myConnection, Statement myStatement) throws SQLException {
+		if (myStatement != null) {
+			myStatement.close();
+		}
+		
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+	
+}
