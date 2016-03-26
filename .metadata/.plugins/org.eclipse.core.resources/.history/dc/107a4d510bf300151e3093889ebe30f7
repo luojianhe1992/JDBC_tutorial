@@ -1,0 +1,18 @@
+package test_4;
+
+import com.mysql.jdbc.exceptions.jdbc4.MySQLDataException;
+
+public class Driver {
+	static String url = "jdbc:mysql://localhost:3306/test";
+	static String user = "root";
+	static String password = "541548";
+	
+	public static void main(String[] args) {
+		try {
+			
+		} catch (MySQLDataException e) {
+			
+		}
+	}
+	
+}

@@ -1,0 +1,8 @@
+package test_4;
+
+public class Driver {
+	static String url = "jdbc:mysql://localhost:3306/test";
+	static String user = "root";
+	static String password = "541548";
+	
+}
