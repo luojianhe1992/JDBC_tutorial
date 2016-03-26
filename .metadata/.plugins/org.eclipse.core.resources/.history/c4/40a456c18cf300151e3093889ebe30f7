@@ -1,0 +1,169 @@
+package test_10;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class TransactionDemo {
+	public static void main(String[] args) throws{
+		
+		Connection myConnection = null;
+		Statement myStatement = null;
+		ResultSet myResultSet = null;
+		
+		String url = "jdbc:mysql://localhost:3306/demo";
+		String user = "root";
+		String password = "541548";
+		
+		try {
+			
+			myConnection = DriverManager.getConnection(url, user, password);
+			
+			// set auto commit to be false
+			myConnection.setAutoCommit(false);
+			
+			System.out.println("Before the transaction, print out the Engineering and HR");
+			
+			String engineeringDepartment = "Engineering";
+			String hrDepartment = "HR";
+			
+			showEmployees(myConnection, engineeringDepartment);
+			showEmployees(myConnection, hrDepartment);
+			
+			myStatement = myConnection.createStatement();
+			
+			String sql_1 = "delete from employees where department='HR'";
+			String sql_2 = "update employees set salary=30000 where department='Engineering'";
+			
+			myStatement.executeUpdate(sql_1);
+			myStatement.executeUpdate(sql_2);
+			
+			System.out.println("Already call the executeUpdate function, "
+					+ "not call the commit function yet, "
+					+ "ready to call commit function or rollback function");
+			
+			boolean ok = askUserIfOkToSave();
+			
+			if (ok) {
+				myConnection.commit();
+				System.out.println("Transaction commit");
+			}
+			else{
+				myConnection.rollback();
+				System.out.println("Transaction rollback");
+			}
+			
+			System.out.println("After the transaction, print out the Engineering and HR");
+			showEmployees(myConnection, engineeringDepartment);
+			showEmployees(myConnection, hrDepartment);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myConnection, myStatement, myResultSet);
+		}
+	}
+	
+	private static boolean askUserIfokToSave(){
+		
+	}
+	
+	
+	// show all employers
+	private static void showAllEmployees(Connection myConnection) throws SQLException{
+		java.sql.PreparedStatement myStatement = null;
+		ResultSet myResultSet = null;
+		try {
+			String sql = "select * from employees";
+			myStatement = myConnection.prepareStatement(sql);
+			myResultSet = myStatement.executeQuery();
+			System.out.println("*********************************************");
+			while (myResultSet.next()) {
+				String the_first_name = myResultSet.getString("first_name");
+				String the_last_name = myResultSet.getString("last_name");
+				String the_email = myResultSet.getString("email");
+				String the_department = myResultSet.getString("department");
+				double the_salaries = myResultSet.getDouble("salary");
+				System.out.println(the_first_name + "\t"
+								+ the_last_name + "\t"
+								+ the_email + "\t"
+								+ the_department + "\t"
+								+ the_salaries);
+			}
+			System.out.println("*********************************************");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myStatement, myResultSet);
+		}
+	}
+	
+		
+	// Show the employers according to the department
+	private static void showEmployees(Connection myConnection, String department) throws SQLException{
+	
+		java.sql.PreparedStatement myStatement = null;
+		ResultSet myResultSet = null;
+		
+		try {
+			
+			String sql = "select * from employees where department=?";
+			
+			myStatement = myConnection.prepareStatement(sql);
+			
+			myStatement.setString(1, department);
+			
+			myResultSet = myStatement.executeQuery();
+			
+			System.out.println("*********************************************");
+			while (myResultSet.next()) {
+				String the_first_name = myResultSet.getString("first_name");
+				String the_last_name = myResultSet.getString("last_name");
+				String the_email = myResultSet.getString("email");
+				String the_department = myResultSet.getString("department");
+				double the_salaries = myResultSet.getDouble("salary");
+				System.out.println(the_first_name + "\t"
+								+ the_last_name + "\t"
+								+ the_email + "\t"
+								+ the_department + "\t"
+								+ the_salaries);
+			}
+			System.out.println("*********************************************");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myStatement, myResultSet);
+		}
+	}
+	
+	
+	// define close function
+	private static void close(Connection myConnection, Statement myStatement, ResultSet myResultSet) throws SQLException{
+		if (myResultSet != null) {
+			myResultSet.close();
+		}
+		if (myStatement != null) {
+			myStatement.close();
+		}
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+	
+	// overload the close function
+	private static void close(Statement myStatement, ResultSet myResultSet) throws SQLException{
+		if (myStatement != null) {
+			myStatement.close();
+		}
+		if (myResultSet != null) {
+			myResultSet.close();
+		}
+	}
+}
