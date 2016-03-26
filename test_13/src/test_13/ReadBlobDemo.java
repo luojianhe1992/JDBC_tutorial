@@ -36,12 +36,14 @@ public class ReadBlobDemo {
 			output = new FileOutputStream(theFile);
 			
 			if (myResultSet.next()) {
+				// get binary stream from ResultSet about resume
 				input = myResultSet.getBinaryStream("resume");
 				System.out.println("The InputStream from database about resume is: " + input);
 				
 				System.out.println("Reading resume from database...");
 				System.out.println();
 				
+				// using byte to write the FileOutputStream object
 				byte [] buffer = new byte[1024];
 				while (input.read(buffer) > 0) {
 					output.write(buffer);

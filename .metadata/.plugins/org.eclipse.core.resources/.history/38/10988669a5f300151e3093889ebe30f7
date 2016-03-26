@@ -1,0 +1,53 @@
+package test_14;
+
+import java.io.FileWriter;
+import java.io.Reader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class ReadClobDemo {
+	public static void main(String[] args) throws SQLException {
+		Connection myConnection = null;
+		Statement myStatement = null;
+		ResultSet myResultSet = null;
+		
+		String url = "jdbc:mysql://localhost:3306/demo";
+		String user = "root";
+		String password = "541548";
+		
+		Reader input = null;
+		FileWriter output = null;
+		
+		try {
+			myConnection = DriverManager.getConnection(url, user, password);
+			myStatement = myConnection.createStatement();
+			String sql = "select resume from employees where email='john.doe@foo.com'";
+			
+			myResultSet = myStatement.executeQuery(sql);
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myConnection, myStatement, myResultSet);
+		}
+		
+	}
+	
+	private static void close(Connection myConnection, Statement myStatement, ResultSet myResultSet) throws SQLException {
+		if (myResultSet != null) {
+			myResultSet.close();
+		}
+		if (myStatement != null) {
+			myStatement.close();
+		}
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+}

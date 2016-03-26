@@ -1,0 +1,10 @@
+package test_14;
+
+import java.sql.SQLException;
+
+public class WriteClobDemo {
+	public static void main(String[] args) throws SQLException{
+		
+	}
+	
+}
