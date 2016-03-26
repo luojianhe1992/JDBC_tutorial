@@ -128,25 +128,25 @@ public class GreetTheDepartment {
 	
 	
 	// define close function
-		private static void close(Connection myConnection, Statement myStatment, ResultSet myResultSet) throws SQLException{
-			if (myResultSet != null) {
-				myResultSet.close();
-			}
-			if (myStatment != null) {
-				myStatment.close();
-			}
-			if (myConnection != null) {
-				myConnection.close();
-			}
+	private static void close(Connection myConnection, Statement myStatment, ResultSet myResultSet) throws SQLException{
+		if (myResultSet != null) {
+			myResultSet.close();
 		}
-		
-		// overload the close function
-		private static void close(Statement myStatement, ResultSet myResultSet) throws SQLException{
-			if (myStatement != null) {
-				myStatement.close();
-			}
-			if (myResultSet != null) {
-				myResultSet.close();
-			}
+		if (myStatment != null) {
+			myStatment.close();
 		}
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+	
+	// overload the close function
+	private static void close(Statement myStatement, ResultSet myResultSet) throws SQLException{
+		if (myStatement != null) {
+			myStatement.close();
+		}
+		if (myResultSet != null) {
+			myResultSet.close();
+		}
+	}
 }
