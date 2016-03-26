@@ -1,0 +1,11 @@
+package test_7;
+
+import java.sql.Connection;
+
+public class GreetTheDepartment {
+	public static void main(String[] args) {
+		
+		Connection myConnection = 
+		
+	}
+}

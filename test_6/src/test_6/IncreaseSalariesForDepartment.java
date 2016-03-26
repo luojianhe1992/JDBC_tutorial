@@ -29,7 +29,7 @@ public class IncreaseSalariesForDepartment {
 			int increment = 10000;
 			
 			System.out.println("Before calling the stored procedure.");
-			showSalaries(myConnection, department);
+			showEmployers(myConnection, department);
 			
 			// call precedure in the sql
 			String sql = "{call increase_salaries_for_department(?, ?)}";
@@ -45,7 +45,7 @@ public class IncreaseSalariesForDepartment {
 			System.out.println("Finish calling stored procedure.");
 			
 			System.out.println("After calling the procedures.");
-			showSalaries(myConnection, department);
+			showEmployers(myConnection, department);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -56,7 +56,7 @@ public class IncreaseSalariesForDepartment {
 	}
 	
 	
-	public static void showSalaries(Connection myConnection, String department) throws SQLException{
+	public static void showEmployers(Connection myConnection, String department) throws SQLException{
 		
 		java.sql.PreparedStatement myStatement = null;
 		ResultSet myResultSet = null;
