@@ -1,179 +1,153 @@
 package dao;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.util.*;
+import java.sql.*;
+import java.io.*;
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
 
 import core.Employee;
 
+/**
+ * 
+ * @author www.luv2code.com
+ *
+ */
 public class EmployeeDAO {
-	
-	private Connection myConnection;
-	
-	// constructor function
-	public EmployeeDAO() throws FileNotFoundException, IOException, SQLException {
-		
-		Properties myProperties = new Properties();
-		myProperties.load(new FileInputStream("demo.properties"));
-		
-		String user = myProperties.getProperty("user");
-		String password = myProperties.getProperty("password");
-		String url = myProperties.getProperty("url");
-		
-		myConnection = DriverManager.getConnection(url, user, password);
-		System.out.println("Successfully connected to the database...");
-	}
-	
-	public void addEmployee(Employee newEmployee) throws SQLException{
-		
-		PreparedStatement myStatement = null;
-		ResultSet myResultSet = null;
-		
-		String firstName = newEmployee.getFirstName();
-		String lastName = newEmployee.getLastName();
-		String email = newEmployee.getEmail();
-		BigDecimal salary = newEmployee.getSalary();
-		
-		try {
-			
-			String sql = "insert into employees "
-					+ "(first_name, last_name, email, salary) "
-					+ "values (?, ?, ?, ?)";
-			myStatement = myConnection.prepareStatement(sql);
-			
-			myStatement.setString(1, firstName);
-			myStatement.setString(2, lastName);
-			myStatement.setString(3, email);
-			myStatement.setBigDecimal(4, salary);
-			
-			myStatement.executeUpdate();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			close(myStatement, myResultSet);
-		}
-	}
-	
-	// get all employees from the database
-	public List<Employee> getAllEmployees() throws SQLException {
-		List<Employee> employeeList = new ArrayList<Employee>();
-		
-		Statement myStatement = null;
-		ResultSet myResultSet = null;
-		try {
-			myStatement = myConnection.createStatement();
-			String sql = "select * from employees";
-			myResultSet = myStatement.executeQuery(sql);
-			
-			while (myResultSet.next()) {
-				Employee tempEmployee = convertRowToEmployee(myResultSet);
-				employeeList.add(tempEmployee);
-			}			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			close(myStatement, myResultSet);
-		}
-		return employeeList;
-	}
-	
-	public List<Employee> searchEmployeesUseLastname(String lastname) throws SQLException{
-		
-		List<Employee> employeeList = new ArrayList<Employee>();
-		
-		PreparedStatement myStatement = null;
-		ResultSet myResultSet = null;
-		
-		//in order to use sql command like
-		lastname = "%" + lastname + "%";
-		
-		try {
-			String sql = "select * from employees where last_name like ?";
-			myStatement = myConnection.prepareStatement(sql);
-			myStatement.setString(1, lastname);
-			myResultSet = myStatement.executeQuery();
-			
-			while (myResultSet.next()) {
-				Employee tempEmployee = convertRowToEmployee(myResultSet);
-				employeeList.add(tempEmployee);
-			}
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			close(myStatement, myResultSet);
-		}
-		return employeeList;
-	}
-	
-	public List<Employee> searchEmployeesUseFirstname(String firstname) throws SQLException{
-		
-		List<Employee> employeeList = new ArrayList<Employee>();
-		
-		PreparedStatement myStatement = null;
-		ResultSet myResultSet = null;
 
-		//in order to use sql command like
-		firstname = "%" + firstname + "%";
+	private Connection myConn;
+	
+	public EmployeeDAO() throws Exception {
 		
-		try {
-			String sql = "select * from employees where first_name like ?";
-			myStatement = myConnection.prepareStatement(sql);
-			myStatement.setString(1, firstname);
-			myResultSet = myStatement.executeQuery();
-			
-			while (myResultSet.next()) {
-				Employee tempEmployee = convertRowToEmployee(myResultSet);
-				employeeList.add(tempEmployee);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally {
-			close(myStatement, myResultSet);
-		}
-		return employeeList;
+		// get db properties
+		Properties props = new Properties();
+		props.load(new FileInputStream("demo.properties"));
+		
+		String user = props.getProperty("user");
+		String password = props.getProperty("password");
+		String url = props.getProperty("url");
+		
+		// connect to database
+		myConn = DriverManager.getConnection(url, user, password);
+		
+		System.out.println("DB connection successful to: " + url);
 	}
 	
-	private Employee convertRowToEmployee(ResultSet myResultSet) throws SQLException {
+	public void addEmployee(Employee theEmployee) throws Exception {
+		PreparedStatement myStmt = null;
+
+		try {
+			// prepare statement
+			myStmt = myConn.prepareStatement("insert into employees"
+					+ " (first_name, last_name, email, salary)"
+					+ " values (?, ?, ?, ?)");
+			
+			// set params
+			myStmt.setString(1, theEmployee.getFirstName());
+			myStmt.setString(2, theEmployee.getLastName());
+			myStmt.setString(3, theEmployee.getEmail());
+			myStmt.setBigDecimal(4, theEmployee.getSalary());
+			
+			// execute SQL
+			myStmt.executeUpdate();			
+		}
+		finally {
+			close(myStmt);
+		}
 		
-		int id = myResultSet.getInt("id");
-		String firstname = myResultSet.getString("first_name");
-		String lastname = myResultSet.getString("last_name");
-		String email = myResultSet.getString("email");
-		BigDecimal salary = myResultSet.getBigDecimal("salary");
+	}
+	
+	
+	public List<Employee> getAllEmployees() throws Exception {
+		List<Employee> list = new ArrayList<>();
 		
-		Employee tempEmployee = new Employee(id, firstname, lastname, email, salary);
+		Statement myStmt = null;
+		ResultSet myRs = null;
+		
+		try {
+			myStmt = myConn.createStatement();
+			myRs = myStmt.executeQuery("select * from employees order by last_name");
+			
+			while (myRs.next()) {
+				Employee tempEmployee = convertRowToEmployee(myRs);
+				list.add(tempEmployee);
+			}
+
+			return list;		
+		}
+		finally {
+			close(myStmt, myRs);
+		}
+	}
+	
+	public List<Employee> searchEmployees(String lastName) throws Exception {
+		List<Employee> list = new ArrayList<>();
+
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+
+		try {
+			lastName += "%";
+			myStmt = myConn.prepareStatement("select * from employees where last_name like ?  order by last_name");
+			
+			myStmt.setString(1, lastName);
+			
+			myRs = myStmt.executeQuery();
+			
+			while (myRs.next()) {
+				Employee tempEmployee = convertRowToEmployee(myRs);
+				list.add(tempEmployee);
+			}
+			
+			return list;
+		}
+		finally {
+			close(myStmt, myRs);
+		}
+	}
+	
+	private Employee convertRowToEmployee(ResultSet myRs) throws SQLException {
+		
+		int id = myRs.getInt("id");
+		String lastName = myRs.getString("last_name");
+		String firstName = myRs.getString("first_name");
+		String email = myRs.getString("email");
+		BigDecimal salary = myRs.getBigDecimal("salary");
+		
+		Employee tempEmployee = new Employee(id, lastName, firstName, email, salary);
+		
 		return tempEmployee;
 	}
+
 	
-	private static void close(Connection myConnection, Statement myStatement, ResultSet myResultSet) throws SQLException {
-		if (myResultSet != null) {
-			myResultSet.close();
+	private static void close(Connection myConn, Statement myStmt, ResultSet myRs)
+			throws SQLException {
+
+		if (myRs != null) {
+			myRs.close();
 		}
-		if (myStatement != null) {
-			myStatement.close();
+
+		if (myStmt != null) {
+			
 		}
-		if (myConnection != null) {
-			myConnection.close();
+		
+		if (myConn != null) {
+			myConn.close();
 		}
 	}
+
+	private void close(Statement myStmt, ResultSet myRs) throws SQLException {
+		close(null, myStmt, myRs);		
+	}
+
+	private void close(Statement myStmt) throws SQLException {
+		close(null, myStmt, null);		
+	}
 	
-	private void close(Statement myStatement, ResultSet myResultSet) throws SQLException {
-		close(null, myStatement, myResultSet);		
+	public static void main(String[] args) throws Exception {
+		
+		EmployeeDAO dao = new EmployeeDAO();
+		System.out.println(dao.searchEmployees("thom"));
+
+		System.out.println(dao.getAllEmployees());
 	}
 }
