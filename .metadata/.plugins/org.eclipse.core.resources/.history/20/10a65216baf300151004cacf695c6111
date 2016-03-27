@@ -101,8 +101,8 @@ public class EmployeeSearchApp extends JFrame{
 					
 					// create the model and update the "table"
 					EmployeeTableModel model = new EmployeeTableModel(employees);
+					
 					table.setModel(model);
-
 				} catch (Exception exc) {
 					JOptionPane.showMessageDialog(EmployeeSearchApp.this, "Error: " + exc, "Error", JOptionPane.ERROR_MESSAGE); 
 				}

@@ -6,6 +6,7 @@ import core.Employee;
 
 import java.util.List;
 
+
 public class EmployeeTableModel extends AbstractTableModel{
 	private static final int LAST_NAME_COL = 0;
 	private static final int FIRST_NAME_COL = 1;
@@ -58,5 +59,6 @@ public class EmployeeTableModel extends AbstractTableModel{
 	public Class getColumnClass(int c) {
 		return getValueAt(0, c).getClass();
 	}
+	
 	
 }

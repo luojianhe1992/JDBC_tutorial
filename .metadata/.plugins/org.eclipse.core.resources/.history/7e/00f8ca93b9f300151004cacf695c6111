@@ -92,7 +92,9 @@ public class EmployeeSearchApp extends JFrame{
 				
 				try {
 					String lastName = lastNameTextField.getText();
+
 					List<Employee> employees = null;
+
 					if (lastName != null && lastName.trim().length() > 0) {
 						employees = employeeDAO.searchEmployeesUseLastname(lastName);
 					} else {
@@ -101,8 +103,14 @@ public class EmployeeSearchApp extends JFrame{
 					
 					// create the model and update the "table"
 					EmployeeTableModel model = new EmployeeTableModel(employees);
+					
 					table.setModel(model);
-
+					
+					/*
+					for (Employee temp : employees) {
+						System.out.println(temp);
+					}
+					*/
 				} catch (Exception exc) {
 					JOptionPane.showMessageDialog(EmployeeSearchApp.this, "Error: " + exc, "Error", JOptionPane.ERROR_MESSAGE); 
 				}
