@@ -1,0 +1,36 @@
+package dao;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Properties;
+
+import core.Employee;
+
+public class EmployeeDAO {
+	
+	private Connection myConnection;
+	
+	// constructor function
+	public EmployeeDAO() throws FileNotFoundException, IOException, SQLException {
+		
+		Properties myProperties = new Properties();
+		myProperties.load(new FileInputStream("demo.properties"));
+		
+		String user = myProperties.getProperty("user");
+		String password = myProperties.getProperty("password");
+		String url = myProperties.getProperty("url");
+		
+		myConnection = DriverManager.getConnection(url, user, password);
+		System.out.println("Successfully connected to the database...");
+	}
+	
+	public List<Employee> getAllEmployees() throws{
+		
+	}
+	
+}

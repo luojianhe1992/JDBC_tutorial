@@ -1,0 +1,19 @@
+package dao;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.util.Properties;
+
+public class EmployeeDAO {
+	
+	private Connection myConnection;
+	
+	// constructor function
+	public EmployeeDAO() {
+		
+		Properties myProperties = new Properties();
+		myProperties.load(new FileInputStream());
+		
+	}
+	
+}

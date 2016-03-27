@@ -1,0 +1,13 @@
+package core;
+
+import java.math.BigDecimal;
+
+public class Employee {
+	private int id;
+	private String firstname;
+	private String lastname;
+	private String email;
+	private BigDecimal salary
+	
+	
+}

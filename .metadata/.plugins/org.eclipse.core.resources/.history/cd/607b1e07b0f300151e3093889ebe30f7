@@ -1,0 +1,8 @@
+package core;
+
+public class Employee {
+	private int id;
+	private String first_name
+	
+	
+}
