@@ -1,7 +1,0 @@
-package test_14;
-
-public class WriteClobDemo {
-	public static void main(String[] args) {
-		
-	}
-}

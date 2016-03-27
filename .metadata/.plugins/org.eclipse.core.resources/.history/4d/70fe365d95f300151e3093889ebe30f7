@@ -1,7 +1,0 @@
-package test_12;
-
-public class ResultSetDemo {
-	public static void main(String[] args) {
-		
-	}
-}

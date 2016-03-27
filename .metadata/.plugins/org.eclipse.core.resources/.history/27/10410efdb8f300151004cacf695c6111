@@ -1,0 +1,12 @@
+package ui;
+
+import javax.swing.table.AbstractTableModel;
+
+import java.util.List;
+
+
+public class EmployeeTableModel extends AbstractTableModel{
+
+	
+	
+}

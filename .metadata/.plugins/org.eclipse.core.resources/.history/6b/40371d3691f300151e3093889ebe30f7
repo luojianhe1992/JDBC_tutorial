@@ -1,7 +1,0 @@
-package test_11;
-
-public class MetaDataBasicInfo {
-	public static void main(String[] args) {
-		
-	}
-}

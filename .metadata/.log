@@ -120,3 +120,239 @@ java.net.UnknownHostException: www.codetrails.com: unknown error
 	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.doRun(CheckForProjectNewsJob.java:89)
 	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.run(CheckForProjectNewsJob.java:62)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:01:46.432
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:01:46.432
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:01:46.432
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:01:46.439
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:01:46.439
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:01:46.439
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:01:46.456
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:01:46.456
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:01:46.456
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:01:46.456
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:01:46.456
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:01:46.456
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.core.jobs 4 2 2016-03-26 21:03:17.110
+!MESSAGE An internal error occurred during: "Install download2".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:666)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:591)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:723)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:288)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:223)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:153)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.jobs 4 2 2016-03-26 21:03:19.006
+!MESSAGE An internal error occurred during: "Install download1".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:666)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:591)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:723)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:288)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:223)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:153)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.jobs 4 2 2016-03-26 21:03:26.377
+!MESSAGE An internal error occurred during: "Install download0".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:666)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:591)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:723)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:288)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:223)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:153)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.core.jobs 4 2 2016-03-26 21:03:27.238
+!MESSAGE An internal error occurred during: "Install download3".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:666)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:591)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:723)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:288)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:223)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:153)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2016-03-26 21:03:27.314
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2016-03-26 21:03:27.314
+!MESSAGE session context was:(profile=epp.package.jee, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.core.databinding.xml,1.0.0.r37x201106081533
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.core.ui.feature,1.0.0.r37x201106081733
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.core.xml.feature,1.0.0.r37x201106081533
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.discovery.core,1.0.0.r37x201106081733
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.discovery.ui,1.0.0.r37x201106081733
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.doc.user,1.0.0.r37x201106081535
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.doc.user.feature,1.0.0.r37x201106081535
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.ercp.doc.user,1.0.0.r37x201106081545
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.ercp.doc.user.feature,1.0.0.r37x201106081545
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.jdt.fragment,1.0.0.r37x201106081531
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.layout.group,1.0.0.r37x201106081642
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.layout.group.feature,1.0.0.r37x201106081642
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.os,1.0.0.r37x201106081531
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.os.macosx,1.0.0.r37x201106081531
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp,1.0.0.r37x201106091049
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp.SWT_AWT,1.0.0.r37x201106081558
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.rcp.SWT_AWT_support,1.0.0.r37x201106081558
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp.databinding,1.0.0.r37x201106091049
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp.databinding.emf,1.0.0.r37x201106091049
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp.databinding.xwt,1.0.0.r37x201106081641
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp.doc.user,1.0.0.r37x201106081544
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.rcp.doc.user.feature,1.0.0.r37x201106081544
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.rcp.feature,1.0.0.r37x201106091049
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp.nebula,1.0.0.r37x201106091049
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.rcp.swing2swt,1.0.0.r37x201106091049
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.runtime,1.0.0.r37x201106081531
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.runtime.lib,1.0.0.r37x201106081531
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.FormLayout,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.FormLayout.lib,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.MigLayout,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.MigLayout.lib,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.databinding,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.doc.user,1.0.0.r37x201106081543
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.swing.doc.user.feature,1.0.0.r37x201106081543
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.swing.feature,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.java6,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swing.jsr296,1.0.0.r37x201106081552
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swt,1.0.0.r37x201106081643
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.swt.feature,1.0.0.r37x201106081643
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.swt.widgets.baseline,1.0.0.r37x201106091049
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.xwt,1.0.0.r37x201106081641
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:03:27.314
+!MESSAGE No repository found containing: org.eclipse.update.feature,org.eclipse.wb.xwt.feature,1.0.0.r37x201106081641
+!SESSION 2016-03-26 21:03:57.514 -----------------------------------------------
+eclipse.buildId=4.5.2.M20160212-1500
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/jianheluo/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/jianheluo/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:06:12.675
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:06:12.675
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:06:12.675
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:06:12.704
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:06:12.704
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:06:12.704
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:06:12.741
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:06:12.742
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:06:12.742
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-03-26 21:06:12.742
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-03-26 21:06:12.742
+!MESSAGE Cannot complete the install because some dependencies are not satisfiable
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-03-26 21:06:12.742
+!MESSAGE org.eclipse.wb.ercp.feature.feature.group [1.0.0.r37x201106081556] cannot be installed in this environment because its filter is not applicable.
+
+!ENTRY org.eclipse.core.jobs 4 2 2016-03-26 21:07:41.047
+!MESSAGE An internal error occurred during: "Install download0".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:666)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.downloadArtifact(SimpleArtifactRepository.java:591)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:723)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.getArtifact(MirrorRequest.java:319)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transferSingle(MirrorRequest.java:288)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.transfer(MirrorRequest.java:223)
+	at org.eclipse.equinox.internal.p2.artifact.repository.MirrorRequest.perform(MirrorRequest.java:153)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository.getArtifact(SimpleArtifactRepository.java:707)
+	at org.eclipse.equinox.internal.p2.artifact.repository.simple.DownloadJob.run(DownloadJob.java:63)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.engine 4 4 2016-03-26 21:07:41.435
+!MESSAGE An error occurred while collecting items to be installed
+!SUBENTRY 1 org.eclipse.equinox.p2.engine 4 0 2016-03-26 21:07:41.435
+!MESSAGE session context was:(profile=epp.package.jee, phase=org.eclipse.equinox.internal.p2.engine.phases.Collect, operand=, action=).
+!SUBENTRY 1 org.eclipse.equinox.p2.artifact.repository 4 0 2016-03-26 21:07:41.435
+!MESSAGE No repository found containing: osgi.bundle,org.eclipse.wb.ercp.doc.user,1.0.0.r37x201106081545
