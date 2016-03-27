@@ -1,0 +1,167 @@
+package dao;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import core.Employee;
+
+public class EmployeeDAO {
+	
+	private Connection myConnection;
+	
+	// constructor function
+	public EmployeeDAO() throws FileNotFoundException, IOException, SQLException {
+		
+		Properties myProperties = new Properties();
+		myProperties.load(new FileInputStream("demo.properties"));
+		
+		String user = myProperties.getProperty("user");
+		String password = myProperties.getProperty("password");
+		String url = myProperties.getProperty("url");
+		
+		myConnection = DriverManager.getConnection(url, user, password);
+		System.out.println("Successfully connected to the database...");
+	}
+	
+	public void addEmployee(Employee newEmployee) throws SQLException{
+		
+		PreparedStatement myStatement = null;
+		ResultSet myResultSet = null;
+		
+		try {
+			
+			String sql = "insert into employees" + ;
+			myStatement = myConnection.prepareStatement(sql);
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myStatement, myResultSet);
+		}
+		
+	}
+	
+	// get all employees from the database
+	public List<Employee> getAllEmployees() throws SQLException {
+		List<Employee> employeeList = new ArrayList<Employee>();
+		
+		Statement myStatement = null;
+		ResultSet myResultSet = null;
+		try {
+			myStatement = myConnection.createStatement();
+			String sql = "select * from employees";
+			myResultSet = myStatement.executeQuery(sql);
+			
+			while (myResultSet.next()) {
+				Employee tempEmployee = convertRowToEmployee(myResultSet);
+				employeeList.add(tempEmployee);
+			}			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myStatement, myResultSet);
+		}
+		return employeeList;
+	}
+	
+	public List<Employee> searchEmployeesUseLastname(String lastname) throws SQLException{
+		
+		List<Employee> employeeList = new ArrayList<Employee>();
+		
+		PreparedStatement myStatement = null;
+		ResultSet myResultSet = null;
+		
+		//in order to use sql command like
+		lastname = "%" + lastname + "%";
+		
+		try {
+			String sql = "select * from employees where last_name like ?";
+			myStatement = myConnection.prepareStatement(sql);
+			myStatement.setString(1, lastname);
+			myResultSet = myStatement.executeQuery();
+			
+			while (myResultSet.next()) {
+				Employee tempEmployee = convertRowToEmployee(myResultSet);
+				employeeList.add(tempEmployee);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myStatement, myResultSet);
+		}
+		return employeeList;
+	}
+	
+	public List<Employee> searchEmployeesUseFirstname(String firstname) throws SQLException{
+		
+		List<Employee> employeeList = new ArrayList<Employee>();
+		
+		PreparedStatement myStatement = null;
+		ResultSet myResultSet = null;
+
+		//in order to use sql command like
+		firstname = "%" + firstname + "%";
+		
+		try {
+			String sql = "select * from employees where first_name like ?";
+			myStatement = myConnection.prepareStatement(sql);
+			myStatement.setString(1, firstname);
+			myResultSet = myStatement.executeQuery();
+			
+			while (myResultSet.next()) {
+				Employee tempEmployee = convertRowToEmployee(myResultSet);
+				employeeList.add(tempEmployee);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(myStatement, myResultSet);
+		}
+		return employeeList;
+	}
+	
+	private Employee convertRowToEmployee(ResultSet myResultSet) throws SQLException {
+		
+		int id = myResultSet.getInt("id");
+		String firstname = myResultSet.getString("first_name");
+		String lastname = myResultSet.getString("last_name");
+		String email = myResultSet.getString("email");
+		BigDecimal salary = myResultSet.getBigDecimal("salary");
+		
+		Employee tempEmployee = new Employee(id, firstname, lastname, email, salary);
+		return tempEmployee;
+	}
+	
+	private static void close(Connection myConnection, Statement myStatement, ResultSet myResultSet) throws SQLException {
+		if (myResultSet != null) {
+			myResultSet.close();
+		}
+		if (myStatement != null) {
+			myStatement.close();
+		}
+		if (myConnection != null) {
+			myConnection.close();
+		}
+	}
+	
+	private void close(Statement myStatement, ResultSet myResultSet) throws SQLException {
+		close(null, myStatement, myResultSet);		
+	}
+}
